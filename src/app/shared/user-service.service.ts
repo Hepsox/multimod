@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, map, toArray } from 'rxjs';
+import { Observable, delay, map, of, toArray } from 'rxjs';
 import { User } from '../models/User';
 
 @Injectable({
@@ -22,5 +22,9 @@ export class UserServiceService {
         return users[randomIndex];
       })
     );
+  }
+
+  login(): Observable<boolean> {
+    return of(false).pipe(delay(3000));
   }
 }
